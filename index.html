@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, interactive-widget=resizes-content">
-<title id="pageTitleTag">晨諾餐飲叫貨系統 Demo</title>
+<title id="pageTitleTag">蕉來旺叫貨系統 Demo</title>
 <link rel="icon" id="faviconLink" href="data:,">
 <style>
 :root{
@@ -417,6 +417,8 @@ input:focus{outline:none;box-shadow:0 0 0 3px rgba(192,57,31,.16)!important;bord
 .login-foot a{color:var(--brand);font-weight:700;text-decoration:underline;cursor:pointer;}
 .manual-login{margin-top:10px;font-size:13px;color:var(--gray);}
 .manual-login summary{cursor:pointer;text-align:center;padding:6px;}
+.site-foot{text-align:center;font-size:12px;color:var(--gray);line-height:1.8;padding:18px 12px 110px;}
+.site-foot a{color:var(--brand);font-weight:700;text-decoration:underline;cursor:pointer;}
 .login-note{text-align:center;font-size:12px;color:var(--gray);margin-top:10px;}
 .brand-logo{width:28px;height:28px;border-radius:8px;object-fit:cover;vertical-align:middle;margin-right:8px;}
 .brand-dot{margin-right:8px;}
@@ -444,7 +446,7 @@ input:focus{outline:none;box-shadow:0 0 0 3px rgba(192,57,31,.16)!important;bord
 
 <div class="topbar">
   <div>
-    <h1 id="shopNameDisplay" style="white-space:nowrap;">晨諾示範餐廳</h1>
+    <h1 id="shopNameDisplay" style="white-space:nowrap;">蕉來旺</h1>
     <div class="sub"><span id="appSubDisplay">叫貨系統</span> <span class="readonly-badge">唯讀模式</span></div>
   </div>
   <div class="role-pick" id="loggedInBar">
@@ -464,7 +466,7 @@ input:focus{outline:none;box-shadow:0 0 0 3px rgba(192,57,31,.16)!important;bord
 <!-- ============ 登入畫面 ============ -->
 <div class="modal-mask show" id="loginGate" style="align-items:center;z-index:300;">
   <div class="modal-sheet login-sheet" style="border-radius:20px;max-width:360px;max-height:92vh;overflow:auto;">
-    <h3 style="text-align:center;margin-bottom:4px;">晨諾餐飲叫貨系統 <span class="demo-tag">Demo</span></h3>
+    <h3 style="text-align:center;margin-bottom:4px;">蕉來旺叫貨系統 <span class="demo-tag">Demo</span></h3>
     <div class="login-sub">選一個身份，點一下就能開始試玩</div>
     <div id="loginLoadingHint" style="text-align:center;color:var(--gray);font-size:13px;margin-bottom:10px;">資料載入中，請稍候…</div>
     <div class="role-cards loading" id="roleCards">
@@ -473,13 +475,13 @@ input:focus{outline:none;box-shadow:0 0 0 3px rgba(192,57,31,.16)!important;bord
       <button class="role-card" onclick="demoQuickLogin_('boss')" type="button"><b>營運（唯讀）｜示範老闆</b><span>只看報表與盤點，不能修改</span></button>
     </div>
     <div id="loginError" style="color:var(--warn);font-size:13px;text-align:center;margin:8px 0;display:none;">帳號或密碼錯誤</div>
-    <div class="login-foot"><a onclick="openPricingModal_()">方案示意</a><span>·</span><a onclick="openContactModal_()">我想導入</a></div>
+    <div class="login-foot"><a onclick="openPricingModal_()">方案示意</a><span>·</span><a onclick="openContactModal_()">我想導入</a><span>·</span><a onclick="openTermsModal_()">使用條款</a></div>
     <details class="manual-login"><summary>用帳號密碼登入</summary>
       <div class="field-row"><label>帳號</label><input type="text" id="loginAccount" placeholder="請輸入帳號" inputmode="text" autocomplete="username" autocapitalize="off" autocorrect="off" spellcheck="false" onkeydown="if(event.key==='Enter')doLogin()"></div>
       <div class="field-row"><label>密碼</label><input type="password" id="loginPassword" placeholder="請輸入密碼" autocomplete="current-password" onkeydown="if(event.key==='Enter')doLogin()"></div>
       <button class="confirm-btn" onclick="doLogin()">登入</button>
     </details>
-    <div class="login-note">示範帳號共用密碼 <b>1234</b><br>資料每天凌晨 4 點重置，所有人共用同一份</div>
+    <div class="login-note">示範帳號共用密碼 <b>1234</b><br>資料每天凌晨 4 點重置，所有人共用同一份<br>© 2026 紅威媒體行銷股份有限公司 版權所有</div>
   </div>
 </div>
 
@@ -595,7 +597,7 @@ input:focus{outline:none;box-shadow:0 0 0 3px rgba(192,57,31,.16)!important;bord
       <div class="card" id="settingsCard">
         <div class="field-row">
           <label>店名（顯示在頂部標題）</label>
-          <input type="text" id="settingShopName" placeholder="例如：晨諾示範餐廳">
+          <input type="text" id="settingShopName" placeholder="例如：蕉來旺">
         </div>
         <div class="field-row">
           <label>副標題</label>
@@ -696,6 +698,7 @@ input:focus{outline:none;box-shadow:0 0 0 3px rgba(192,57,31,.16)!important;bord
     </div>
   </div>
 </div>
+<div class="site-foot">© 2026 紅威媒體行銷股份有限公司 版權所有<br><a onclick="openTermsModal_()">使用條款</a></div>
 <div class="toast" id="toast"></div>
 
 <nav class="tabbar">
@@ -707,7 +710,7 @@ input:focus{outline:none;box-shadow:0 0 0 3px rgba(192,57,31,.16)!important;bord
 
 <script>
 /* =========================================================
-   晨諾餐飲叫貨系統 Demo － 前端
+   蕉來旺叫貨系統 Demo － 前端
    資料層：localStorage（真實部署後可換成後端API，介面呼叫不用大改）
    ========================================================= */
 
@@ -717,11 +720,11 @@ input:focus{outline:none;box-shadow:0 0 0 3px rgba(192,57,31,.16)!important;bord
    storagePrefix：本站在瀏覽器裡存資料用的名字開頭，和其他系統分開，不會互相讀到。 */
 const SITE_CONFIG = {
   siteId: 'chennuo-demo',
-  gasUrl: 'https://script.google.com/macros/s/AKfycbwyjX5ICc-E2rBbd40cuhbyXuh9SM62CZ5U9-goKmt_Qo3eTKTWn9HKt17WbjIhN9Dg/exec',
+  gasUrl: '/api',   // 2026-11-25：網頁只呼叫自己網址下的 /api，由 Cloudflare 中繼轉給後端；後端網址與密語都收在 Cloudflare，瀏覽器看不到
   storagePrefix: 'cnd_',
   demoToken: 'chennuo-demo-2026',
   demoPassword: '1234',
-  shopName: '晨諾示範餐廳',
+  shopName: '蕉來旺',
 };
 const IS_DEMO = true;
 const FETCH_EPOCH_KEY = SITE_CONFIG.storagePrefix + 'epoch_v1';
@@ -785,7 +788,7 @@ function buildDeltaPayload_(sinceISO){
 const ROLES = ['維護專員','管理者','叫貨者','營運(唯讀)'];
 const LEGACY_ROLE_MAP = {'店經理':'叫貨者','採購':'叫貨者','後台驗收':'叫貨者','預備人員':'叫貨者'}; // 舊角色名稱自動對應到新角色
 /* 權限分三層：
-   isMaintainer＝系統維護方（晨諾創意，業主專用），帳號管理／雲端同步／授權收費／背景圖案／一鍵匯入 只有這層能動
+   isMaintainer＝系統維護方（紅威媒體行銷，業主專用），帳號管理／雲端同步／授權收費／背景圖案／一鍵匯入 只有這層能動
    isStoreAdmin＝店家管理者，可以管供應商／品項／店名等「店家營運」內容，但動不到上面那層
    isReadonly＝唯讀，什麼都不能改
    叫貨者＝只能下單／驗收／盤點 */
@@ -796,7 +799,7 @@ let db = loadDB();
 let state = { currentSupplierId:null, activeTab:'order', itemViewMode:'list' };
 let cloudSyncTimer = null;
 
-const APP_VERSION = '2026.11.18-demo1'; // 前端版本號：每次更新請同步改這裡，出問題時店家可以回報畫面上的版本
+const APP_VERSION = '2026.11.25-demo2'; // 前端版本號：每次更新請同步改這裡，出問題時店家可以回報畫面上的版本
 document.addEventListener('DOMContentLoaded',()=>{ const v=document.getElementById('verText'); if(v) v.textContent='v'+APP_VERSION; });
 const DEFAULT_GAS_URL = (SITE_CONFIG.gasUrl.indexOf('__') === 0) ? '' : SITE_CONFIG.gasUrl;
 // ===== 2026-10-14新增：雲端存取代碼 =====
@@ -1703,7 +1706,7 @@ function contactBlockHtml_(){
   const c = String(p.contact||'').trim();
   const maintHint = (isMaintainer() && !c) ? '<div style="font-size:12px;color:var(--brand);margin-top:6px;">（維護專員提醒：到「管理 › 系統設定 › 方案示意」填寫聯絡方式，這裡就會顯示）</div>' : '';
   return '<div style="background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin-top:12px;white-space:pre-line;font-size:15px;line-height:1.7;">'
-    + (c ? escapeHtml(c) : '請洽晨諾創意') + '</div>' + maintHint;
+    + (c ? escapeHtml(c) : '請洽紅威媒體行銷股份有限公司') + '</div>' + maintHint;
 }
 function openPricingModal_(){
   const p = pricingData_();
@@ -1720,6 +1723,19 @@ function openContactModal_(){
     + '<div style="font-size:14px;color:var(--gray);line-height:1.6;">想把叫貨、收貨對帳、盤點搬到你的餐廳？留下聯絡，我們協助安排導入。</div>'
     + contactBlockHtml_()
     + '<button class="close-modal" type="button" onclick="demoCloseModal_(\'demoContact\')" style="margin-top:14px;">關閉</button>');
+}
+function openTermsModal_(){
+  const li = t => '<li style="margin-bottom:8px;">' + t + '</li>';
+  demoShowModal_('demoTerms', '<h3 style="margin-bottom:4px;">使用條款</h3>'
+    + '<div style="font-size:12px;color:var(--gray);margin-bottom:8px;">蕉來旺叫貨系統 Demo</div>'
+    + '<ol style="padding-left:20px;margin:0;font-size:14.5px;line-height:1.75;">'
+    + li('本站是紅威媒體行銷股份有限公司的叫貨系統示範，歡迎試用與體驗。')
+    + li('站內的畫面設計、程式、文案與流程，著作權屬於紅威媒體行銷股份有限公司。')
+    + li('轉載、引用或做為其他用途前，請先取得紅威媒體行銷股份有限公司同意。')
+    + li('示範資料每天凌晨 4 點重置，並由所有訪客共用，請使用虛構資料體驗。')
+    + li('想導入自己的餐廳，歡迎點「我想導入」與我們聯繫。')
+    + '</ol>'
+    + '<button class="close-modal" type="button" onclick="demoCloseModal_(\'demoTerms\')" style="margin-top:14px;">關閉</button>');
 }
 function renderPricingEditor_(){
   const el = document.getElementById('pricingEditor'); if(!el) return;
@@ -3280,7 +3296,7 @@ function onSaveGasUrl(){
    刪除品項/供應商/帳號目前都是刪了就沒了，沒有回收機制。
    這裡提供最直接可靠的救命繩：把整個資料庫匯出成一個.json備份檔，
    之後不管是誤刪、誤改，還是雲端資料出問題，都可以用備份檔整包還原。
-   僅「維護專員」（晨諾創意）可操作，因為這是系統層級的救援功能。 */
+   僅「維護專員」（紅威媒體行銷）可操作，因為這是系統層級的救援功能。 */
 function renderBackupCard(){
   const wrap = document.getElementById('backupCard');
   if(!wrap) return;
@@ -3658,7 +3674,7 @@ async function initApp(){
   mergeDuplicateSuppliers();
   const hint = document.getElementById('loginLoadingHint');
   if(hint) hint.style.display = 'none';
-  if(!getGasUrl() && hint){ hint.style.display=''; hint.textContent='尚未連接雲端資料，請聯絡晨諾創意'; }
+  if(!getGasUrl() && hint){ hint.style.display=''; hint.textContent='尚未連接雲端資料，請聯絡紅威媒體行銷股份有限公司'; }
   demoAfterLoad_();
   initLogin(); // 登入成功後（loginAsAccount內）才會渲染供應商/訂單等業務資料
   renderLicenseBanner();
